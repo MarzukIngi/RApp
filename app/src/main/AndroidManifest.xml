@@ -10,6 +10,27 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RApp">
         <activity
+            android:name=".PageActivities.FrontPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PageActivities.PageCreateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".PageActivities.PageMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivities.UserMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivities.UserChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivities.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivities.LogInActivity"
+            android:exported="false" />
+        <activity
             android:name=".RecipeActivities.RecipeMainActivity"
             android:exported="false" />
         <activity
