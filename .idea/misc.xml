@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_front_page.xml" value="0.153125" />
         <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_page_create.xml" value="0.153125" />
         <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_user_main.xml" value="0.153125" />
       </map>
     </option>
