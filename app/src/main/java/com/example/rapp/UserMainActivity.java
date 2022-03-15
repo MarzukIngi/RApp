@@ -1,14 +1,14 @@
-package com.example.rapp.RecipeActivities;
+package com.example.rapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class RecipeChangeActivity extends AppCompatActivity {
+public class UserMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe_change);
+        setContentView(R.layout.activity_user_main);
     }
 }

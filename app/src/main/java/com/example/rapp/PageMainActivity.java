@@ -1,14 +1,14 @@
-package com.example.rapp.PageActivities;
+package com.example.rapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class FrontPageActivity extends AppCompatActivity {
+public class PageMainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_front_page);
+        setContentView(R.layout.activity_page_main);
     }
 }

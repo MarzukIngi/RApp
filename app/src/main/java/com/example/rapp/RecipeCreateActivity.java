@@ -1,14 +1,14 @@
-package com.example.rapp.UserActivities;
+package com.example.rapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class LogInActivity extends AppCompatActivity {
+public class RecipeCreateActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_log_in);
+        setContentView(R.layout.activity_recipe_create);
     }
 }
