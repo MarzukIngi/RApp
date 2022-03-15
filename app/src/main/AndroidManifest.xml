@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RApp">
         <activity
+            android:name=".RecipeActivities.RecipeMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeActivities.RecipeChangeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RecipeActivities.RecipeCreateActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
