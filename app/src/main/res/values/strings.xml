@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">RApp</string>
+    <string name="sja_uppksriftir">Sjá uppskriftir</string>
+    <string name="titill">Uppskriftavefurinn RAPP</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="log_in">Log In</string>
 </resources>
