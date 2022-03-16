@@ -1,4 +1,4 @@
-package com.example.rapp;
+package com.example.rapp.entities;
 
 import java.util.List;
 
@@ -10,20 +10,49 @@ public class Recipe {
     private boolean published;
     private long views;
     private double avgRating;
-
-    // Á eftir að bæta inn Review og User klösunum
-    //private List<Review> reviews;
-    //private User user;
+    private List<Review> reviews;
+    private User user;
+    private Page page;
 
     public Recipe() {
 
     }
 
-    public Recipe(String title, String description, List<String> ingredients, boolean published) {
+    public Recipe(long ID, String title, String description, List<String> ingredients, boolean published, long views, double avgRating, List<Review> reviews, User user, Page page) {
+        this.ID = ID;
         this.title = title;
         this.description = description;
         this.ingredients = ingredients;
         this.published = published;
+        this.views = views;
+        this.avgRating = avgRating;
+        this.reviews = reviews;
+        this.user = user;
+        this.page = page;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Page getPage() {
+        return page;
+    }
+
+    public void setPage(Page page) {
+        this.page = page;
     }
 
     public long getID() {
