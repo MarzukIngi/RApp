@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         mRecipesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Færist yfir í uppskriftir");
                 Intent intent = new Intent(MainActivity.this, RecipeMainActivity.class);
                 startActivity(intent);
             }
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
         mSignUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d(TAG, "Færist yfir í signup");
                 Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
@@ -42,7 +40,6 @@ public class MainActivity extends AppCompatActivity {
         mLogInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Log.d(TAG, "Færist yfir í login");
                Intent intent = new Intent(MainActivity.this, LogInActivity.class);
                startActivity(intent);
             }
