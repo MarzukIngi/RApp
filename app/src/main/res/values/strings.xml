@@ -10,4 +10,5 @@
     <string name="view_user">Skoða notanda</string>
     <string name="create_page">Búa til síðu</string>
     <string name="view_page">Skoða síðu</string>
+    <string name="update_user">Uppfæra notanda</string>
 </resources>

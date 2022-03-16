@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class LogInActivity extends AppCompatActivity {
 
-    private Button mMainButton;
+    private Button mFrontPageButton;
     private Button mSignUpButton;
 
     @Override
@@ -17,8 +17,8 @@ public class LogInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        mMainButton = (Button) findViewById(R.id.main_button);
-        mMainButton.setOnClickListener(new View.OnClickListener() {
+        mFrontPageButton = (Button) findViewById(R.id.front_page_button);
+        mFrontPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(LogInActivity.this, FrontPageActivity.class);
