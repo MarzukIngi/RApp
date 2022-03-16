@@ -13,10 +13,10 @@
         android:padding="24dp"/>
 
     <Button
-        android:id="@+id/recipes_button"
+        android:id="@+id/front_page_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/sja_uppksriftir"
+        android:text="@string/forsida"
         />
     <LinearLayout
         android:layout_width="wrap_content"
