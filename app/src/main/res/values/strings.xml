@@ -15,4 +15,5 @@
     <string name="go_to_recipe">Go to recipe</string>
     <string name="edit_page">Breyta síðu</string>
     <string name="create_recipe">Búa til uppskrift</string>
+    <string name="edit_recipe">Uppfæra uppskrift</string>
 </resources>
