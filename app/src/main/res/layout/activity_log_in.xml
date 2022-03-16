@@ -12,11 +12,23 @@
         android:text="Hér mun login virknin koma"
         android:padding="24dp"/>
 
-    <Button
-        android:id="@+id/main_button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/upphafsskjar"
-        />
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forsida"
+            />
+
+        <Button
+            android:id="@+id/signup_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_up"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -12,11 +12,31 @@
         android:text="Hér mun frontpage virknin koma"
         android:padding="24dp"/>
 
-    <Button
-        android:id="@+id/main_button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/upphafsskjar"
-        />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/user_main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_user"
+            android:layout_marginRight="12dp"
+            />
+
+        <Button
+            android:id="@+id/page_main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/view_page"
+            android:layout_marginRight="12dp"/>
+
+        <Button
+            android:id="@+id/page_create_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_page"/>
+    </LinearLayout>
 
 </LinearLayout>

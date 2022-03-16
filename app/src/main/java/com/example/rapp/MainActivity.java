@@ -10,7 +10,6 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button mRecipesButton;
-    private Button mSignUpButton;
     private Button mLogInButton;
 
     private static final String TAG = "MainActivity";
@@ -24,14 +23,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, FrontPageActivity.class);
-                startActivity(intent);
-            }
-        });
-        mSignUpButton = (Button) findViewById(R.id.signup_button);
-        mSignUpButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });

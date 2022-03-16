@@ -7,4 +7,7 @@
     <string name="upphafsskjar">Upphafsskjár</string>
     <string name="uppskriftasidur">Sjá uppskriftasíður</string>
     <string name="forsida">Fara á forsíðu</string>
+    <string name="view_user">Skoða notanda</string>
+    <string name="create_page">Búa til síðu</string>
+    <string name="view_page">Skoða síðu</string>
 </resources>
