@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RApp">
         <activity
+            android:name=".PageChangeActivity"
+            android:exported="false" />
+        <activity
             android:name=".FrontPageActivity"
             android:exported="false" />
         <activity

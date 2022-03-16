@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class PageCreateActivity extends AppCompatActivity {
+public class PageChangeActivity extends AppCompatActivity {
 
     private Button mFrontPageButton;
     private Button mPageMainButton;
@@ -15,13 +15,13 @@ public class PageCreateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_page_create);
+        setContentView(R.layout.activity_page_change);
 
         mFrontPageButton = (Button) findViewById(R.id.front_page_button);
         mFrontPageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PageCreateActivity.this, FrontPageActivity.class);
+                Intent intent = new Intent(PageChangeActivity.this, FrontPageActivity.class);
                 startActivity(intent);
             }
         });
@@ -30,7 +30,7 @@ public class PageCreateActivity extends AppCompatActivity {
         mPageMainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PageCreateActivity.this, PageMainActivity.class);
+                Intent intent = new Intent(PageChangeActivity.this, PageMainActivity.class);
                 startActivity(intent);
             }
         });

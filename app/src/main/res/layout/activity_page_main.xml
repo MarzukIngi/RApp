@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
@@ -9,13 +9,48 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hér mun koma pages virkni"
+        android:text="Hér kemur virkni fyrir síðu með mörgum uppskriftum"
         android:padding="24dp"/>
 
-    <Button
-        android:id="@+id/main_button"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/upphafsskjar"
-        />
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/front_page_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forsida"
+            android:layout_marginRight="12dp"
+            />
+
+        <Button
+            android:id="@+id/recipe_main_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_recipe"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/page_change_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/edit_page"
+            android:layout_marginRight="12dp"
+            />
+
+        <Button
+            android:id="@+id/recipe_create_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/create_recipe"
+            android:layout_marginLeft="12dp"/>
+    </LinearLayout>
 </LinearLayout>

@@ -11,4 +11,8 @@
     <string name="create_page">Búa til síðu</string>
     <string name="view_page">Skoða síðu</string>
     <string name="update_user">Uppfæra notanda</string>
+    <string name="go_to_creator_page">Fara á uppskriftasíðu</string>
+    <string name="go_to_recipe">Go to recipe</string>
+    <string name="edit_page">Breyta síðu</string>
+    <string name="create_recipe">Búa til uppskrift</string>
 </resources>
