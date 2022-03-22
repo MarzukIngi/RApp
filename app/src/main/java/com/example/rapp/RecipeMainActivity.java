@@ -14,6 +14,7 @@ public class RecipeMainActivity extends AppCompatActivity {
     private Button mFrontPageButton;
     private Button mRecipeChangeButton;
     private Button mUserMainButton;
+    // Dummy gögn
     private Recipe[] mRecipeBank = new Recipe[]{
             new Recipe("Kjúklinga Tikka Masala", "Þetta er kjúklingur"),
             new Recipe("Cheerios", "Settu morgunkornið fyrst og síðan mjólkina"),

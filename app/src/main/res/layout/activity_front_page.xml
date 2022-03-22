@@ -60,6 +60,8 @@
             android:id="@+id/random_recipe_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/white"
+            android:textColor="@android:color/black"
             android:text="@string/velja_random_uppskrift" />
         <Button
             android:id="@+id/recipe_1_button"
