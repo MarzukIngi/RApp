@@ -3,18 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_front_page.xml" value="0.25" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_change.xml" value="0.1" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_create.xml" value="0.25" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_change.xml" value="0.1" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_create.xml" value="0.18489583333333334" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_change.xml" value="0.13247213779128672" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_front_page.xml" value="0.153125" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_log_in.xml" value="0.1" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_page_create.xml" value="0.153125" />
+        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_user_main.xml" value="0.153125" />
+        <entry key="..\:/Users/stein/AndroidStudioProjects/RApp/app/src/main/res/layout/activity_front_page.xml" value="0.1" />
+        <entry key="..\:/Users/stein/AndroidStudioProjects/RApp/app/src/main/res/layout/activity_main.xml" value="0.1" />
       </map>
     </option>
   </component>

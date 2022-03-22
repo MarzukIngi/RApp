@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">RApp</string>
-    <string name="sja_uppksriftir">Sjá uppskriftir</string>
+    <string name="sja_uppskriftir">Sjá uppskriftir</string>
     <string name="titill">Uppskriftavefurinn RAPP</string>
     <string name="sign_up">Sign Up</string>
     <string name="log_in">Log In</string>
@@ -16,4 +16,17 @@
     <string name="edit_page">Breyta síðu</string>
     <string name="create_recipe">Búa til uppskrift</string>
     <string name="edit_recipe">Uppfæra uppskrift</string>
+    <string name="uppskrift_1">Uppskrift 1</string>
+    <string name="uppskrift_2">Uppskrift 2</string>
+    <string name="uppskrift_3">Uppskrift 3</string>
+    <string name="uppskrift_4">Uppskrift 4</string>
+    <string name="uppskriftarvefurinn_rapp">Uppskriftarvefurinn RAPP</string>
+    <string name="uppskriftir">Uppskriftir</string>
+    <string name="velja_random_uppskrift">Velja random uppskrift</string>
+    <string name="sidur">Síður</string>
+    <string name="sida_1">Síða 1</string>
+    <string name="sida_2">Síða 2</string>
+    <string name="sida_3">Síða 3</string>
+    <string name="sida_4">Síða 4</string>
+    <string name="velja_random_sidu">Velja random síðu</string>
 </resources>
