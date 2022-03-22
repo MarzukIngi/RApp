@@ -31,6 +31,11 @@ public class Recipe {
         this.page = page;
     }
 
+    public Recipe(String title, String description) {
+        this.title = title;
+        this.description = description;
+    }
+
     public List<Review> getReviews() {
         return reviews;
     }

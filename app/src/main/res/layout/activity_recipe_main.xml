@@ -27,7 +27,7 @@
             android:id="@+id/recipe_change_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/edit_recipe"
+            android:text="@string/h"
             android:layout_marginLeft="12dp"/>
     </LinearLayout>
 
