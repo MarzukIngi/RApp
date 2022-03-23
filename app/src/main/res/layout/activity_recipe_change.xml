@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hér mun koma virkni til að búa til ný page"
+        android:text="Hér mun koma virkni til að uppfæra uppskriftir"
         android:padding="24dp"/>
 
     <LinearLayout

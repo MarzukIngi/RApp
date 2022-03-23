@@ -7,15 +7,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class FrontPageActivity extends AppCompatActivity {
 
-    private Button mUserMainButton;
-    private Button mPageMainButton;
-    private Button mPageCreateButton;
-    private Button mRecipe1Button;
-    private Button mRecipe2Button;
-    private Button mRecipe3Button;
-    private Button mRecipe4Button;
+    private Button mUserMainButton, mPageMainButton, mPageCreateButton, mRandomButton;
+    private Button mRecipe1Button, mRecipe2Button, mRecipe3Button, mRecipe4Button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +50,7 @@ public class FrontPageActivity extends AppCompatActivity {
         mRecipe1Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FrontPageActivity.this, RecipeMainActivity.class);
-                intent.putExtra("RecipeId", 0);
+                Intent intent = RecipeMainActivity.newIntent(FrontPageActivity.this, 0);
                 startActivity(intent);
             }
         });
@@ -63,8 +59,7 @@ public class FrontPageActivity extends AppCompatActivity {
         mRecipe2Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FrontPageActivity.this, RecipeMainActivity.class);
-                intent.putExtra("RecipeId", 1);
+                Intent intent = RecipeMainActivity.newIntent(FrontPageActivity.this, 1);
                 startActivity(intent);
             }
         });
@@ -73,8 +68,7 @@ public class FrontPageActivity extends AppCompatActivity {
         mRecipe3Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FrontPageActivity.this, RecipeMainActivity.class);
-                intent.putExtra("RecipeId", 2);
+                Intent intent = RecipeMainActivity.newIntent(FrontPageActivity.this, 2);
                 startActivity(intent);
             }
         });
@@ -83,8 +77,18 @@ public class FrontPageActivity extends AppCompatActivity {
         mRecipe4Button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FrontPageActivity.this, RecipeMainActivity.class);
-                intent.putExtra("RecipeId", 3);
+                Intent intent = RecipeMainActivity.newIntent(FrontPageActivity.this, 3);
+                startActivity(intent);
+            }
+        });
+
+        mRandomButton = (Button) findViewById(R.id.random_recipe_button);
+        mRandomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                int recipeId = random.nextInt(4);
+                Intent intent = RecipeMainActivity.newIntent(FrontPageActivity.this, recipeId);
                 startActivity(intent);
             }
         });
