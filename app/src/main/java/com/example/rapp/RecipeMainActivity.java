@@ -4,16 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.rapp.entities.Recipe;
 
 public class RecipeMainActivity extends AppCompatActivity {
 
-    private Button mFrontPageButton;
-    private Button mRecipeChangeButton;
-    private Button mUserMainButton;
+    private Button mFrontPageButton, mRecipeChangeButton, mUserMainButton;
+    private TextView mTitleTextView, mDescriptionTextView;
+    private int mRecipeId;
+    private final String TAG = "RecipeMainActivity";
     // Dummy gögn
     private Recipe[] mRecipeBank = new Recipe[]{
             new Recipe("Kjúklinga Tikka Masala", "Þetta er kjúklingur"),
@@ -26,6 +29,11 @@ public class RecipeMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe_main);
+        mRecipeId = getIntent().getIntExtra("RecipeId", 0);
+        mTitleTextView = (TextView) findViewById(R.id.title_text_view);
+        mTitleTextView.setText(mRecipeBank[mRecipeId].getTitle());
+        mDescriptionTextView = (TextView) findViewById(R.id.description_text_view);
+        mDescriptionTextView.setText(mRecipeBank[mRecipeId].getDescription());
 
         mFrontPageButton = (Button) findViewById(R.id.front_page_button);
         mFrontPageButton.setOnClickListener(new View.OnClickListener() {
