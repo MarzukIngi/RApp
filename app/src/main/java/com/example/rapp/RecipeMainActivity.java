@@ -19,12 +19,7 @@ public class RecipeMainActivity extends AppCompatActivity {
     private static final String TAG = "RecipeMainActivity";
     private static final String EXTRA_RECIPE_ID = "com.example.rapp.recipeId";
     // Dummy gögn
-    private Recipe[] mRecipeBank = new Recipe[]{
-            new Recipe("Kjúklinga Tikka Masala", "Þetta er kjúklingur"),
-            new Recipe("Cheerios", "Settu morgunkornið fyrst og síðan mjólkina"),
-            new Recipe("Spagettí", "Nennir einhver að nota skeið?"),
-            new Recipe("Ristað brauð", "Maður segir brauðrist en ekki ristavél")
-    };
+    private RecipeDbMock mRecipeBank = new RecipeDbMock();
 
     public static Intent newIntent(Context packageContext, int recipeId) {
         Intent intent = new Intent(packageContext, RecipeMainActivity.class);
@@ -38,9 +33,9 @@ public class RecipeMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_main);
         mRecipeId = getIntent().getIntExtra(EXTRA_RECIPE_ID, 0);
         mTitleTextView = (TextView) findViewById(R.id.title_text_view);
-        mTitleTextView.setText(mRecipeBank[mRecipeId].getTitle());
+        mTitleTextView.setText(mRecipeBank.getRecipeById(mRecipeId).getTitle());
         mDescriptionTextView = (TextView) findViewById(R.id.description_text_view);
-        mDescriptionTextView.setText(mRecipeBank[mRecipeId].getDescription());
+        mDescriptionTextView.setText(mRecipeBank.getRecipeById(mRecipeId).getDescription());
 
         mFrontPageButton = (Button) findViewById(R.id.front_page_button);
         mFrontPageButton.setOnClickListener(new View.OnClickListener() {
