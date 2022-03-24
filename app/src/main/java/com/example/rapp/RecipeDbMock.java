@@ -3,6 +3,7 @@ package com.example.rapp;
 import com.example.rapp.entities.Recipe;
 
 public class RecipeDbMock {
+    // Dummy gögn
     private Recipe[] recipes = new Recipe[]{
             new Recipe("Kjúklinga Tikka Masala", "Þetta er kjúklingur"),
             new Recipe("Cheerios", "Settu morgunkornið fyrst og síðan mjólkina"),

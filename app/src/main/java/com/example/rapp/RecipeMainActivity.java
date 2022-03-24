@@ -18,7 +18,6 @@ public class RecipeMainActivity extends AppCompatActivity {
     private int mRecipeId;
     private static final String TAG = "RecipeMainActivity";
     private static final String EXTRA_RECIPE_ID = "com.example.rapp.recipeId";
-    // Dummy gögn
     private RecipeDbMock mRecipeBank = new RecipeDbMock();
 
     public static Intent newIntent(Context packageContext, int recipeId) {
@@ -50,7 +49,7 @@ public class RecipeMainActivity extends AppCompatActivity {
         mRecipeChangeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(RecipeMainActivity.this, RecipeChangeActivity.class);
+                Intent intent = RecipeChangeActivity.newIntent(RecipeMainActivity.this, mRecipeId);
                 startActivity(intent);
             }
         });

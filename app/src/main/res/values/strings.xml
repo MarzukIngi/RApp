@@ -35,4 +35,5 @@
     <string name="ristabraud_desc">Maður segir brauðrist en ekki ristavél</string>
     <string name="placeholder_recipe_title">Uppskriftartitill</string>
     <string name="placeholder_recipe_description">Innihald uppskriftar (description)</string>
+    <string name="save">Vista</string>
 </resources>
