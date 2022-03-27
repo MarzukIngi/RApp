@@ -1,24 +1,35 @@
 package com.example.rapp.entities;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Recipe {
+    @SerializedName("id")
     private long ID;
+    @SerializedName("title")
     private String title;
+    @SerializedName("description")
     private String description;
+    @SerializedName("ingredients")
     private List<String> ingredients;
+    @SerializedName("published")
     private boolean published;
+    @SerializedName("views")
     private long views;
+    @SerializedName("rating")
     private double avgRating;
+    @SerializedName("reviews")
     private List<Review> reviews;
+    @SerializedName("user")
     private User user;
-    private Page page;
+    //private Page page;
 
     public Recipe() {
 
     }
 
-    public Recipe(long ID, String title, String description, List<String> ingredients, boolean published, long views, double avgRating, List<Review> reviews, User user, Page page) {
+    public Recipe(long ID, String title, String description, List<String> ingredients, boolean published, long views, double avgRating, List<Review> reviews, User user) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -28,7 +39,7 @@ public class Recipe {
         this.avgRating = avgRating;
         this.reviews = reviews;
         this.user = user;
-        this.page = page;
+        //this.page = page;
     }
 
     public Recipe(String title, String description) {
@@ -52,13 +63,13 @@ public class Recipe {
         this.user = user;
     }
 
-    public Page getPage() {
-        return page;
-    }
+    //public Page getPage() {
+    //    return page;
+    //}
 
-    public void setPage(Page page) {
-        this.page = page;
-    }
+   // public void setPage(Page page) {
+   //     this.page = page;
+   // }
 
     public long getID() {
         return ID;
