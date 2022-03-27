@@ -2,8 +2,10 @@ package com.example.rapp;
 
 import com.example.rapp.entities.Recipe;
 
+// Temporary class that contains dummy data for recipes
+// We realise that setRecipeDescription doesn't change the recipes
 public class RecipeDbMock {
-    // Dummy gögn
+    // Dummy data
     private Recipe[] recipes = new Recipe[]{
             new Recipe("Kjúklinga Tikka Masala", "Þetta er kjúklingur"),
             new Recipe("Cheerios", "Settu morgunkornið fyrst og síðan mjólkina"),
