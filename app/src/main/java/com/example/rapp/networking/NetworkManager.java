@@ -17,7 +17,8 @@ import java.util.FormatFlagsConversionMismatchException;
 import java.util.List;
 
 public class NetworkManager {
-    private static final String BASE_URL = "http://10.0.2.2:8080/";
+    //private static final String BASE_URL = "http://10.0.2.2:8080/";
+    private static final String BASE_URL = "https://rapplication.herokuapp.com/";
 
     private static NetworkManager mInstance;
     private static RequestQueue mQueue;
@@ -45,7 +46,7 @@ public class NetworkManager {
 
     public void getRecipes(final iNetworkCallback<List<Recipe>> callback) {
         StringRequest request = new StringRequest(
-                Request.Method.GET, BASE_URL + "RestpublishedRecipes", new Response.Listener<String>() {
+                Request.Method.GET, BASE_URL + "REST/publishedRecipes", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
