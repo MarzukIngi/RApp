@@ -61,7 +61,10 @@ public class MainActivity extends AppCompatActivity {
                         case R.id.nav_front:
                             selected = new FrontPageFragment();
                             break;
-                        case R.id.nav_fav:
+                        case R.id.nav_recipes:
+                            selected = new RecipeMainFragment();
+                            break;
+                        case R.id.nav_pages:
                             selected = new RecipeMainFragment();
                             break;
                         case R.id.nav_profile:
