@@ -7,6 +7,7 @@
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main2.xml" value="0.16576086956521738" />
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_change.xml" value="0.36666666666666664" />
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_main.xml" value="0.36666666666666664" />
+<<<<<<< HEAD
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_front_page.xml" value="0.25" />
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_page_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_recipe_main.xml" value="0.20833333333333334" />
@@ -20,6 +21,20 @@
         <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_recipe_main.xml" value="0.2" />
         <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
         <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_user_main.xml" value="0.153125" />
+=======
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_front_page.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_change.xml" value="0.1" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_create.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_change.xml" value="0.1" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_create.xml" value="0.18489583333333334" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_change.xml" value="0.13247213779128672" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_main.xml" value="0.27239583333333334" />
+>>>>>>> 9c410acc29053b1ee9284bebee97df7ade89bd49
       </map>
     </option>
   </component>
