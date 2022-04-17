@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/frontPageFragment"
-        android:name="com.example.rapp.FrontPageFragment"
+        android:name="com.example.rapp.page.FrontPageFragment"
         android:label="fragment_front_page"
         tools:layout="@layout/fragment_front_page" >
         <action
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/pageMainFragment"
-        android:name="com.example.rapp.PageMainFragment"
+        android:name="com.example.rapp.page.PageMainFragment"
         android:label="fragment_page_main"
         tools:layout="@layout/fragment_page_main" >
         <action
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/pageCreateFragment"
-        android:name="com.example.rapp.PageCreateFragment"
+        android:name="com.example.rapp.page.PageCreateFragment"
         android:label="fragment_page_create"
         tools:layout="@layout/fragment_page_create" >
         <action
@@ -52,7 +52,7 @@
     </fragment>
     <fragment
         android:id="@+id/pageChangeFragment"
-        android:name="com.example.rapp.PageChangeFragment"
+        android:name="com.example.rapp.page.PageChangeFragment"
         android:label="fragment_page_change"
         tools:layout="@layout/fragment_page_change" >
         <action
@@ -64,7 +64,7 @@
     </fragment>
     <fragment
         android:id="@+id/userMainFragment"
-        android:name="com.example.rapp.UserMainFragment"
+        android:name="com.example.rapp.user.UserMainFragment"
         android:label="fragment_user_main"
         tools:layout="@layout/fragment_user_main" >
         <action
@@ -76,7 +76,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="com.example.rapp.SignUpFragment"
+        android:name="com.example.rapp.user.SignUpFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up" >
         <action
@@ -88,7 +88,7 @@
     </fragment>
     <fragment
         android:id="@+id/logInFragment"
-        android:name="com.example.rapp.LogInFragment"
+        android:name="com.example.rapp.user.LogInFragment"
         android:label="fragment_log_in"
         tools:layout="@layout/fragment_log_in" >
         <action
@@ -100,7 +100,7 @@
     </fragment>
     <fragment
         android:id="@+id/userChangeFragment"
-        android:name="com.example.rapp.UserChangeFragment"
+        android:name="com.example.rapp.user.UserChangeFragment"
         android:label="fragment_user_change"
         tools:layout="@layout/fragment_user_change" >
         <action
@@ -109,7 +109,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeMainFragment"
-        android:name="com.example.rapp.RecipeMainFragment"
+        android:name="com.example.rapp.recipe.RecipeMainFragment"
         android:label="fragment_recipe_main"
         tools:layout="@layout/fragment_recipe_main" >
         <action
@@ -133,7 +133,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeChangeFragment"
-        android:name="com.example.rapp.RecipeChangeFragment"
+        android:name="com.example.rapp.recipe.RecipeChangeFragment"
         android:label="fragment_recipe_change"
         tools:layout="@layout/fragment_recipe_change" >
         <action
@@ -148,7 +148,7 @@
     </fragment>
     <fragment
         android:id="@+id/recipeCreateFragment"
-        android:name="com.example.rapp.RecipeCreateFragment"
+        android:name="com.example.rapp.recipe.RecipeCreateFragment"
         android:label="fragment_recipe_create"
         tools:layout="@layout/fragment_recipe_create" >
         <action
