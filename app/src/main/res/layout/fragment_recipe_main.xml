@@ -12,20 +12,21 @@
         android:layout_height="wrap_content"
         android:background="@color/teal_700"
         android:gravity="center"
-        android:text="ba"
-        android:textSize="18pt" />
+        android:textSize="18pt"
+        android:layout_marginBottom="10dp"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Lýsing"
+        android:text="@string/lysing"
         android:textStyle="bold"
         android:paddingLeft="2pt"
-        android:textSize="12pt"/>
+        android:textSize="12pt"
+        android:background="@color/teal_700"/>
 
     <TextView
-        android:id="@+id/recipe_decsription_textView"
+        android:id="@+id/recipe_description_textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -35,10 +36,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="Innihald"
+        android:text="@string/innihald"
         android:textStyle="bold"
         android:paddingLeft="2pt"
-        android:textSize="12pt"/>
+        android:textSize="12pt"
+        android:background="@color/teal_700"/>
 
     <TextView
         android:id="@+id/recipe_ingredients_textView"
@@ -46,5 +48,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:textSize="12pt"/>
+
+    <Button
+        android:id="@+id/recipe_change_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/breyta_uppskrift"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
 
 </LinearLayout>

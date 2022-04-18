@@ -2,12 +2,7 @@ package com.example.rapp.page;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -47,24 +42,7 @@ public class FrontPageFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private void addListeners() {
-        for(int i = 0; i < 4; i++) {
-            Button b = (Button) mLinearLayout.getChildAt(i+2);
-           // Recipe r = mRecipes.get(i);
-            b.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Bundle bundle = new Bundle();
-                    bundle.putLong("recipeId", 2);
-                    mMainActivity.getNavController().navigate(
-                            R.id.action_frontPageFragment_to_recipeMainFragment,
-                            bundle);
-                }
-            });
-        }
-    }
-
-    public void recipeButtons() {
+    public void setupRecipeButtons() {
         mMainActivity.getNetworkManager().getTrendyRecipes(new iNetworkCallback<List<Recipe>>() {
             @Override
             public void onSuccess(List<Recipe> result) {
@@ -104,13 +82,7 @@ public class FrontPageFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_front_page, container, false);
         mLinearLayout = view.findViewById(R.id.recipes_linear_layout);
         mMainActivity = (MainActivity) requireActivity();
-        recipeButtons();
+        setupRecipeButtons();
         return view;
     }
-
-    /*@Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        addListeners();
-    }*/
 }

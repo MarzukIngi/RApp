@@ -129,9 +129,6 @@
             android:id="@+id/action_recipeMainFragment_to_recipeChangeFragment"
             app:destination="@id/recipeChangeFragment" />
         <action
-            android:id="@+id/action_recipeMainFragment_to_recipeChangeFragment2"
-            app:destination="@id/recipeChangeFragment" />
-        <action
             android:id="@+id/action_recipeMainFragment_to_userMainFragment"
             app:destination="@id/userMainFragment" />
     </fragment>

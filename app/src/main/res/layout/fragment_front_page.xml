@@ -3,7 +3,6 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:navGraph="@navigation/nav_graph"
         android:orientation="vertical">
 
         <LinearLayout
@@ -18,7 +17,8 @@
             android:padding="34dp"
             android:background="@color/teal_700"
             android:text="@string/uppskriftavefurinn_rapp"
-            android:textSize="12pt"/>
+            android:textSize="12pt"
+            android:layout_marginBottom="10dp"/>
 
         <LinearLayout
             android:id="@+id/recipes_linear_layout"
