@@ -63,4 +63,45 @@ public class NetworkManager {
         );
         mQueue.add(request);
     }
+
+    public void getTrendyRecipes(final iNetworkCallback<List<Recipe>> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/trending", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<Recipe>>(){}.getType();
+                List<Recipe> recipelist = gson.fromJson(response, listType);
+                callback.onSuccess(recipelist);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        );
+        mQueue.add(request);
+    }
+
+    public void getRecipeById(long recipeId, final iNetworkCallback<Recipe> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/Recipe/" + recipeId,
+                new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<Recipe>>(){}.getType();
+                Recipe recipe = gson.fromJson(response, Recipe.class);
+                callback.onSuccess(recipe);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        );
+        mQueue.add(request);
+    }
 }

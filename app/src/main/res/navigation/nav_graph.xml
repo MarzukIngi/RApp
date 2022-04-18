@@ -19,6 +19,9 @@
         <action
             android:id="@+id/action_frontPageFragment_to_logInFragment"
             app:destination="@id/logInFragment" />
+        <action
+            android:id="@+id/action_frontPageFragment_to_recipeMainFragment"
+            app:destination="@id/recipeMainFragment" />
     </fragment>
     <fragment
         android:id="@+id/pageMainFragment"
@@ -37,6 +40,7 @@
         <action
             android:id="@+id/action_pageMainFragment_to_recipeMainFragment"
             app:destination="@id/recipeMainFragment" />
+        <argument android:name="recipeId" />
     </fragment>
     <fragment
         android:id="@+id/pageCreateFragment"

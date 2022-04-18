@@ -3,64 +3,64 @@ package com.example.rapp.recipe;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
+import com.example.rapp.MainActivity;
 import com.example.rapp.R;
+import com.example.rapp.entities.Recipe;
+import com.example.rapp.networking.iNetworkCallback;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecipeMainFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import java.util.List;
+
+
 public class RecipeMainFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private View view;
+    private static final String TAG = "RecipeMainFragment";
+    private Recipe mRecipe;
 
     public RecipeMainFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RecipeMainFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RecipeMainFragment newInstance(String param1, String param2) {
-        RecipeMainFragment fragment = new RecipeMainFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe_main, container, false);
+        view = inflater.inflate(R.layout.fragment_recipe_main, container, false);
+        TextView title = view.findViewById(R.id.recipe_title_textView);
+        TextView description = view.findViewById(R.id.recipe_decsription_textView);
+        TextView ingredients = view.findViewById(R.id.recipe_ingredients_textView);
+        MainActivity act = (MainActivity) requireActivity();
+
+        act.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
+                new iNetworkCallback<Recipe>() {
+            @Override
+            public void onSuccess(Recipe result) {
+                mRecipe = result;
+                title.setText(mRecipe.getTitle());
+                description.setText(mRecipe.getDescription());
+                /*String s = "";
+                for(String ingredient : mRecipe.getIngredients()) s += ingredient + " ";
+                ingredients.setText(s);*/
+            }
+            @Override
+            public void onFailure(String errorString) {
+                Log.e(TAG, "Failed to get Recipes: " + errorString);
+            }
+        });
+        return view;
     }
 }

@@ -3,6 +3,9 @@ package com.example.rapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -19,29 +22,52 @@ import com.example.rapp.user.UserMainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private List<Recipe> mTest;
-
     private static final String TAG = "MainActivity";
+    private NetworkManager mNetworkManager;
+    private List<Recipe> mRecipeResults;
+    private NavController mNavController;
 
+    public NavController getNavController() {
+        return mNavController;
+    }
+
+    public NetworkManager getNetworkManager() {
+        return mNetworkManager;
+    }
+
+    public List<Recipe> getTrendingRecipes() {
+        mNetworkManager.getTrendyRecipes(new iNetworkCallback<List<Recipe>>() {
+            @Override
+            public void onSuccess(List<Recipe> result) {
+                Log.d(TAG, "hæ");
+                mRecipeResults = result;
+            }
+            @Override
+            public void onFailure(String errorString) {
+                Log.e(TAG, "Failed to get Recipes: " + errorString);
+            }
+        });
+        return mRecipeResults;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnItemSelectedListener(navListener);
-        //Prófa að sækja gögn frá bakenda
-        NetworkManager networkManager = NetworkManager.getInstance(this);
-        networkManager.getRecipes(new iNetworkCallback<List<Recipe>>() {
+        NavHostFragment navHostFragment =(NavHostFragment)getSupportFragmentManager()
+                .findFragmentById(R.id.nav_host_fragment);
+        mNavController = navHostFragment.getNavController();
+        mNetworkManager = NetworkManager.getInstance(this);
+        mNetworkManager.getRecipes(new iNetworkCallback<List<Recipe>>() {
             @Override
             public void onSuccess(List<Recipe> result) {
-                mTest = result;
-                Log.d(TAG, "First recipe in list: " + mTest.get(0).getTitle());
+                mRecipeResults = result;
+                Log.d(TAG, "First recipe in list: " + mRecipeResults.get(0).getTitle());
             }
 
             @Override
@@ -49,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "Failed to get Recipes: " + errorString);
             }
         });
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.setOnItemSelectedListener(navListener);
     }
 
     private NavigationBarView.OnItemSelectedListener navListener =
@@ -59,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
                     Fragment selected = null;
                     switch (item.getItemId()) {
                         case R.id.nav_front:
-                            selected = new FrontPageFragment();
+                            //selected = new FrontPageFragment();
+                            mNavController.navigate(R.id.frontPageFragment);
                             break;
                         case R.id.nav_recipes:
                             selected = new RecipeMainFragment();
@@ -71,8 +99,8 @@ public class MainActivity extends AppCompatActivity {
                             selected = new UserMainFragment();
                             break;
                     }
-                    getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                            selected).commit();
+                    //getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
+                           // selected).commit();
                     return true; // return true;
                 }
             };
