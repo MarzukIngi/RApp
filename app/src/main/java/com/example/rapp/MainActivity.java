@@ -4,10 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -16,13 +14,11 @@ import android.view.MenuItem;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.NetworkManager;
 import com.example.rapp.networking.iNetworkCallback;
-import com.example.rapp.page.FrontPageFragment;
 import com.example.rapp.recipe.RecipeMainFragment;
 import com.example.rapp.user.UserMainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -41,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public List<Recipe> getTrendingRecipes() {
-        mNetworkManager.getTrendyRecipes(new iNetworkCallback<List<Recipe>>() {
+        mNetworkManager.getTrendingRecipes(new iNetworkCallback<List<Recipe>>() {
             @Override
             public void onSuccess(List<Recipe> result) {
                 Log.d(TAG, "hæ");

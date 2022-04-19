@@ -43,7 +43,7 @@ public class FrontPageFragment extends Fragment {
     }
 
     public void setupRecipeButtons() {
-        mMainActivity.getNetworkManager().getTrendyRecipes(new iNetworkCallback<List<Recipe>>() {
+        mMainActivity.getNetworkManager().getTrendingRecipes(new iNetworkCallback<List<Recipe>>() {
             @Override
             public void onSuccess(List<Recipe> result) {
                 mRecipes = result;
