@@ -21,7 +21,7 @@ public class RecipeChangeFragment extends Fragment {
     private View view;
     private static final String TAG = "RecipeChangeFragment";
     private Recipe mRecipe = new Recipe();
-    private MainActivity act;
+    private MainActivity mMainActivity;
     private TextView title, description, ingredients;
 
     private View.OnClickListener saveListener = new View.OnClickListener() {
@@ -44,7 +44,7 @@ public class RecipeChangeFragment extends Fragment {
         TextView title = view.findViewById(R.id.recipe_title_change_textview);
         TextView description = view.findViewById(R.id.recipe_description_change_textView);
         //TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
-        act.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
+        mMainActivity.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
                 new iNetworkCallback<Recipe>() {
                     @Override
                     public void onSuccess(Recipe result) {
@@ -71,7 +71,7 @@ public class RecipeChangeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_recipe_change, container, false);
-        act = (MainActivity) requireActivity();
+        mMainActivity = (MainActivity) requireActivity();
         TextView title = view.findViewById(R.id.recipe_title_change_textview);
         TextView description = view.findViewById(R.id.recipe_description_change_textView);
         //TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
@@ -80,11 +80,24 @@ public class RecipeChangeFragment extends Fragment {
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mRecipe.setID(getArguments().getLong("recipeId"));
                 mRecipe.setTitle(title.getText().toString());
                 mRecipe.setDescription(description.getText().toString());
-                Log.d(TAG, mRecipe.getTitle());
+                mMainActivity.getNetworkManager().changeRecipeById(getArguments()
+                                .getLong("recipeId"), mRecipe,
+                        new iNetworkCallback<Recipe>() {
+                            @Override
+                            public void onSuccess(Recipe result) {
+                                Log.d(TAG, "updated");
+                            }
+                            @Override
+                            public void onFailure(String errorString) {
+                                Log.d(TAG, errorString);
+                            }
+                        });
             }
-        });
+            });
         return view;
     }
 }
+

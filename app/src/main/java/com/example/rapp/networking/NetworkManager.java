@@ -1,16 +1,24 @@
 package com.example.rapp.networking;
 
 import android.content.Context;
+import android.util.Log;
 
+import androidx.activity.result.contract.ActivityResultContracts;
+
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.rapp.R;
 import com.example.rapp.entities.Recipe;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.lang.reflect.Type;
 import java.util.FormatFlagsConversionMismatchException;
@@ -23,6 +31,7 @@ public class NetworkManager {
     private static NetworkManager mInstance;
     private static RequestQueue mQueue;
     private Context mContext;
+    private static final String TAG = "NetworkManager";
 
     public static synchronized NetworkManager getInstance(Context context) {
         if(mInstance == null) {
@@ -40,7 +49,6 @@ public class NetworkManager {
         if(mQueue == null) {
             mQueue = Volley.newRequestQueue(mContext.getApplicationContext());
         }
-
         return mQueue;
     }
 
@@ -91,7 +99,6 @@ public class NetworkManager {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-                Type listType = new TypeToken<List<Recipe>>(){}.getType();
                 Recipe recipe = gson.fromJson(response, Recipe.class);
                 callback.onSuccess(recipe);
             }
@@ -102,6 +109,42 @@ public class NetworkManager {
             }
         }
         );
+        mQueue.add(request);
+    }
+
+    public void changeRecipeById(long recipeId, Recipe recipe, final iNetworkCallback<Recipe> callback) {
+        final JSONObject body = new JSONObject();
+        try {
+            body.put("id", recipe.getID());
+            body.put("recipeTitle", recipe.getTitle());
+            body.put("recipeDescription", recipe.getDescription());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d(TAG, body.toString());
+        StringRequest request = new StringRequest(
+                Request.Method.POST, BASE_URL + "REST/editRecipe/" + recipeId,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i(TAG, response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        ) {
+          @Override
+            public byte[] getBody() throws AuthFailureError {
+              return body.toString().getBytes();
+          }
+            @Override
+            public String getBodyContentType() {
+                return "application/json";
+            }
+        };
         mQueue.add(request);
     }
 }
