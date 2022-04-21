@@ -114,14 +114,15 @@ public class NetworkManager {
 
     public void changeRecipeById(long recipeId, Recipe recipe, final iNetworkCallback<Recipe> callback) {
         final JSONObject body = new JSONObject();
+        Gson gson = new Gson();
+        String s = gson.toJson(recipe);
+        Log.d(TAG, s);
         try {
-            body.put("id", recipe.getID());
-            body.put("recipeTitle", recipe.getTitle());
-            body.put("recipeDescription", recipe.getDescription());
+            body.put("recipe", s);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, body.toString());
+        Log.d(TAG, "body: " + body.toString());
         StringRequest request = new StringRequest(
                 Request.Method.POST, BASE_URL + "REST/editRecipe/" + recipeId,
                 new Response.Listener<String>() {

@@ -23,13 +23,14 @@ public class Recipe {
     private List<Review> reviews;
     @SerializedName("user")
     private User user;
-    //private Page page;
+    @SerializedName("page")
+    private Page page;
 
     public Recipe() {
 
     }
 
-    public Recipe(long ID, String title, String description, List<String> ingredients, boolean published, long views, double avgRating, List<Review> reviews, User user) {
+    public Recipe(long ID, String title, String description, List<String> ingredients, boolean published, long views, double avgRating, List<Review> reviews, User user, Page page) {
         this.ID = ID;
         this.title = title;
         this.description = description;
@@ -39,7 +40,7 @@ public class Recipe {
         this.avgRating = avgRating;
         this.reviews = reviews;
         this.user = user;
-        //this.page = page;
+        this.page = page;
     }
 
     public Recipe(String title, String description) {
@@ -63,13 +64,13 @@ public class Recipe {
         this.user = user;
     }
 
-    //public Page getPage() {
-    //    return page;
-    //}
+    public Page getPage() {
+        return page;
+    }
 
-   // public void setPage(Page page) {
-   //     this.page = page;
-   // }
+    public void setPage(Page page) {
+        this.page = page;
+    }
 
     public long getID() {
         return ID;

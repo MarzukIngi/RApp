@@ -16,6 +16,9 @@ import com.example.rapp.R;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.iNetworkCallback;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RecipeChangeFragment extends Fragment {
 
     private View view;
@@ -43,7 +46,7 @@ public class RecipeChangeFragment extends Fragment {
     private void setupRecipe() {
         TextView title = view.findViewById(R.id.recipe_title_change_textview);
         TextView description = view.findViewById(R.id.recipe_description_change_textView);
-        //TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
+        TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
         mMainActivity.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
                 new iNetworkCallback<Recipe>() {
                     @Override
@@ -51,9 +54,9 @@ public class RecipeChangeFragment extends Fragment {
                         mRecipe = result;
                         title.setText(mRecipe.getTitle());
                         description.setText(mRecipe.getDescription());
-                /*String s = "";
-                for(String ingredient : mRecipe.getIngredients()) s += ingredient + " ";
-                ingredients.setText(s);*/
+                        String s = "";
+                    for(String ingredient : mRecipe.getIngredients()) s += ingredient + " ";
+                    ingredients.setText(s);
                     }
                     @Override
                     public void onFailure(String errorString) {
@@ -74,7 +77,7 @@ public class RecipeChangeFragment extends Fragment {
         mMainActivity = (MainActivity) requireActivity();
         TextView title = view.findViewById(R.id.recipe_title_change_textview);
         TextView description = view.findViewById(R.id.recipe_description_change_textView);
-        //TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
+        TextView ingredients = view.findViewById(R.id.recipe_ingredients_change_textView);
         setupRecipe();
         Button save = (Button) view.findViewById(R.id.recipe_change_save_button);
         save.setOnClickListener(new View.OnClickListener() {
@@ -83,12 +86,18 @@ public class RecipeChangeFragment extends Fragment {
                 mRecipe.setID(getArguments().getLong("recipeId"));
                 mRecipe.setTitle(title.getText().toString());
                 mRecipe.setDescription(description.getText().toString());
+                mRecipe.setPage(null);
+                List<String> ingr = new ArrayList<>();
+                String[] s = ingredients.getText().toString().split(" ");
+                for(String str: s) ingr.add(str);
+                mRecipe.setIngredients(ingr);
+                mRecipe.setPublished(true);
                 mMainActivity.getNetworkManager().changeRecipeById(getArguments()
                                 .getLong("recipeId"), mRecipe,
                         new iNetworkCallback<Recipe>() {
                             @Override
                             public void onSuccess(Recipe result) {
-                                Log.d(TAG, "updated");
+                                Log.d(TAG, "Title is " + result.getTitle());
                             }
                             @Override
                             public void onFailure(String errorString) {

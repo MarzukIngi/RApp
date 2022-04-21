@@ -63,7 +63,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(List<Recipe> result) {
                 mRecipeResults = result;
-                Log.d(TAG, "First recipe in list: " + mRecipeResults.get(0).getTitle());
             }
 
             @Override
