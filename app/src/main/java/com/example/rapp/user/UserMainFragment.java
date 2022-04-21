@@ -7,24 +7,67 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.example.rapp.MainActivity;
 import com.example.rapp.R;
+import com.example.rapp.entities.Page;
+import com.example.rapp.networking.iNetworkCallback;
+
+import java.util.List;
 
 public class UserMainFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String TAG = "UserMainFragment";
     private View mView;
     private MainActivity mMainActivity;
+    private List<Page> mPages;
 
     public UserMainFragment() {
         // Required empty public constructor
+    }
+
+    private void setupButtons() {
+        LinearLayout layout = mView.findViewById(R.id.user_main_layout);
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String username = sharedPref.getString("LoggedIn", "unavailable");
+        if(username == "unavailable") {
+            mMainActivity.getNavController().navigate(R.id.logInFragment);
+            return;
+        }
+        mMainActivity.getNetworkManager().getPagesByUsername(username, new iNetworkCallback<List<Page>>() {
+            @Override
+            public void onSuccess(List<Page> result) {
+                mPages = result;
+                Log.d(TAG, "First title: " + mPages.get(0).getTitle());
+                for(Page p: mPages) {
+                    Button b = new Button(getContext());
+                    b.setText(p.getTitle());
+                    b.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Bundle bundle = new Bundle();
+                            bundle.putLong("pageId", p.getID());
+                            mMainActivity.getNavController().navigate(
+                                    R.id.action_userMainFragment_to_pageMainFragment,
+                                    bundle
+                            );
+                        }
+                    });
+                    layout.addView(b);
+                }
+            }
+
+            @Override
+            public void onFailure(String errorString) {
+
+            }
+        });
     }
 
     @Override
@@ -50,7 +93,7 @@ public class UserMainFragment extends Fragment {
                 Navigation.findNavController(view).navigate(R.id.logInFragment);
             }
         });
-
+        setupButtons();
         return mView;
     }
 }

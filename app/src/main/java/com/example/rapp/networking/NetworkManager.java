@@ -225,17 +225,10 @@ public class NetworkManager {
     }
 
     public void changeRecipeById(long recipeId, Recipe recipe, final iNetworkCallback<Recipe> callback) throws JSONException {
-        final JSONObject body = new JSONObject();
         Gson gson = new Gson();
         String s = gson.toJson(recipe);
         JSONObject json = new JSONObject(s);
         Log.d(TAG, s);
-       /* try {
-            body.put("recipe", s);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        Log.d(TAG, "body: " + body.toString());*/
         JsonObjectRequest request = new JsonObjectRequest(
                 Request.Method.POST, BASE_URL + "REST/editRecipe/" + recipeId, json,
                 new Response.Listener<JSONObject>() {
@@ -249,20 +242,38 @@ public class NetworkManager {
                 callback.onFailure(error.toString());
             }
         }
-        ) /*{
-          @Override
-            public byte[] getBody() throws AuthFailureError {
-              return body.toString().getBytes();
-          }
-            @Override
-            public String getBodyContentType() {
-                return "application/json";
-            }*/
-        {
+        ){
             @Override
             public Map<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+
+        };
+        mQueue.add(request);
+    }
+
+    public void getPagesByUsername(String username, final iNetworkCallback<List<Page>> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/userPages",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.d(TAG, response);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error is: " + error);
+            }
+        }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json");
+                headers.put("username", username);
                 return headers;
             }
 

@@ -57,7 +57,12 @@ public class LogInFragment extends Fragment {
 
         view = inflater.inflate(R.layout.fragment_log_in, container, false);
         mMainActivity = (MainActivity) requireActivity();
-
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String username = sharedPref.getString("LoggedIn", "unavailable");
+        if(username != "unavailable") {
+            mMainActivity.getNavController().navigate(R.id.frontPageFragment);
+            return view;
+        }
         EditText getUsername = (EditText) view.findViewById(R.id.username_input);
         EditText getPassword = (EditText) view.findViewById(R.id.password_input);
 

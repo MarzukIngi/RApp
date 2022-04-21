@@ -28,7 +28,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:hint="username"
+            android:hint="@string/notendanafn"
             android:inputType="text" />
 
         <EditText
@@ -36,26 +36,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:hint="password"
+            android:hint="@string/lykilord"
             android:inputType="textPassword" />
 
         <Button
             android:id="@+id/login_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Log in"/>
+            android:text="@string/innskraning"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign up"/>
+            android:text="@string/skra_nyjan_notanda"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
         <Button
             android:id="@+id/continue_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continue without logging in"/>
+            android:text="@string/engin_innskraning"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 
