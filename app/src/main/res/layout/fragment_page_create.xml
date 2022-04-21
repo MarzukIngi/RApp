@@ -8,33 +8,44 @@
     tools:context=".page.PageCreateFragment">
 
     <LinearLayout
-        android:id="@+id/createPage_layout"
+        android:id="@+id/changePage_layout"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/teal_700"
+            android:text="@string/bua_til_uppskrift"/>
+
         <EditText
-            android:id="@+id/pageTitle_input"
+            android:id="@+id/changePageTitle_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:hint="title"
+            android:hint="@string/uppskriftartitill"
             android:inputType="text" />
 
         <EditText
-            android:id="@+id/pageDescription_input"
+            android:id="@+id/changePageDescription_input"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:hint="description"
+            android:hint="@string/lysing"
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/createPage_button"
+            android:id="@+id/savePage_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Create Page"/>
+            android:text="@string/vista"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
 
     </LinearLayout>
 

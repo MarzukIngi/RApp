@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.PageChangeFragment">
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context=".page.PageCreateFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/changePage_layout"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/teal_700"
+            android:text="@string/breyta_uppskrift"/>
+
+        <EditText
+            android:id="@+id/changePageTitle_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="@string/uppskriftartitill"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/changePageDescription_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="@string/lysing"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/savePage_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vista"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

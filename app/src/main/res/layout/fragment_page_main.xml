@@ -3,16 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".page.PageMainFragment">
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context=".page.PageCreateFragment">
 
-    <TextView
-        android:id="@+id/page_title"
+    <LinearLayout
+        android:id="@+id/page_main_layout"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/page_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/teal_700"
+            tools:text="Titill síðu"/>
+
+        <EditText
+            android:id="@+id/pageMainDescription_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:inputType="textPassword"
+            tools:text="Lýsing á síðu" />
+
+    </LinearLayout>
 
 </LinearLayout>

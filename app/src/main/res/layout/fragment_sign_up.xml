@@ -44,13 +44,17 @@
             android:id="@+id/signup_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sign up"/>
+            android:text="Sign up"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
 
         <Button
             android:id="@+id/continue_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Continue without signing up"/>
+            android:text="Continue without signing up"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
 
     </LinearLayout>
 
