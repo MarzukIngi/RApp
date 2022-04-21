@@ -1,14 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".user.UserChangeFragment">
+    android:orientation="vertical"
+    android:weightSum="2"
+    tools:context=".user.SignUpFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
+        android:id="@+id/changeUserlayout"
+        android:layout_weight="1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/teal_700"
+            android:text="@string/breyta_notanda"/>
+
+        <EditText
+            android:id="@+id/change_email_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="@string/netfang"
+            android:inputType="text" />
+
+        username
+        <EditText
+            android:id="@+id/change_username_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="@string/notendanafn"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/change_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:hint="@string/lykilord"
+            android:inputType="textPassword" />
+
+        <Button
+            android:id="@+id/saveUserChange_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/vista"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"/>
+
+    </LinearLayout>
+
+</LinearLayout>

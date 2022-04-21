@@ -1,16 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="2"
     tools:context=".user.UserMainFragment">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="35dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:background="@color/teal_700"
+            tools:text="Nafn á notanda"/>
 
     <Button
         android:id="@+id/logout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:text="@string/utskraning"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
 
-</FrameLayout>
+</LinearLayout>
