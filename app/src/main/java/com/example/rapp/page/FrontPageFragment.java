@@ -16,6 +16,7 @@ import com.example.rapp.R;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.iNetworkCallback;
 import java.util.List;
+import java.util.Random;
 
 
 public class FrontPageFragment extends Fragment {
@@ -26,6 +27,7 @@ public class FrontPageFragment extends Fragment {
     private static final String TAG = "FrontPageFragment";
     private View view;
     private MainActivity mMainActivity;
+    private Button mRandomButton;
 
     private final iNetworkCallback<List<Recipe>> iNC = new iNetworkCallback<List<Recipe>>() {
         @Override
@@ -83,6 +85,16 @@ public class FrontPageFragment extends Fragment {
         mLinearLayout = view.findViewById(R.id.recipes_linear_layout);
         mMainActivity = (MainActivity) requireActivity();
         setupRecipeButtons();
+        mRandomButton = (Button) view.findViewById(R.id.random_recipe_button);
+        mRandomButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Random random = new Random();
+                int r = random.nextInt(4);
+                Button b = (Button) mLinearLayout.getChildAt(r + 2);
+                b.performClick();
+            }
+        });
         return view;
     }
 }

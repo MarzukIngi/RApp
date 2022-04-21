@@ -36,8 +36,8 @@ public class PageMainFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_page_main, container, false);
         mMainActivity = (MainActivity) requireActivity();
 
-        TextView title = view.findViewById(R.id.page_title);
-        TextView description = view.findViewById(R.id.page_title);
+        TextView title = view.findViewById(R.id.page_main_title);
+        TextView description = view.findViewById(R.id.page_main_description);
 
         //mMainActivity.getNetworkManager().get
         return view;

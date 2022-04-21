@@ -15,6 +15,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/page_main_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="35dp"
@@ -23,8 +24,8 @@
             android:background="@color/teal_700"
             tools:text="Titill síðu"/>
 
-        <EditText
-            android:id="@+id/pageMainDescription_input"
+        <TextView
+            android:id="@+id/page_main_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"

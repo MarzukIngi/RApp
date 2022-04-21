@@ -18,7 +18,6 @@
     <string name="vista">Vista</string>
     <string name="breyta_uppskrift">Breyta uppskrift</string>
     <string name="bua_til_uppskrift">Búa til uppskrift</string>
-    <string name="breyta_uppskrift">Breyta uppskrift</string>
     <string name="breyta_notanda">Breyta notanda</string>
     <string name="netfang">Netfang</string>
     <string name="notendanafn">Notendanafn</string>
@@ -27,4 +26,5 @@
     <string name="engin_innskraning">Halda áfram án innskráningar</string>
     <string name="bua_til_notanda">Búa til notanda</string>
     <string name="utskraning">Útskráning</string>
+    <string name="innskraning">Innskráning</string>
 </resources>
