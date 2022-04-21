@@ -16,6 +16,8 @@ import com.example.rapp.R;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.iNetworkCallback;
 
+import org.json.JSONException;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -92,18 +94,23 @@ public class RecipeChangeFragment extends Fragment {
                 for(String str: s) ingr.add(str);
                 mRecipe.setIngredients(ingr);
                 mRecipe.setPublished(true);
-                mMainActivity.getNetworkManager().changeRecipeById(getArguments()
-                                .getLong("recipeId"), mRecipe,
-                        new iNetworkCallback<Recipe>() {
-                            @Override
-                            public void onSuccess(Recipe result) {
-                                Log.d(TAG, "Title is " + result.getTitle());
-                            }
-                            @Override
-                            public void onFailure(String errorString) {
-                                Log.d(TAG, errorString);
-                            }
-                        });
+                try {
+                    mMainActivity.getNetworkManager().changeRecipeById(getArguments()
+                                    .getLong("recipeId"), mRecipe,
+                            new iNetworkCallback<Recipe>() {
+                                @Override
+                                public void onSuccess(Recipe result) {
+                                    Log.d(TAG, "Title is " + result.getTitle());
+                                }
+
+                                @Override
+                                public void onFailure(String errorString) {
+                                    Log.d(TAG, errorString);
+                                }
+                            });
+                } catch(JSONException e) {
+                    Log.e(TAG, e.getMessage());
+                }
             }
             });
         return view;

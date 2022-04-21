@@ -36,8 +36,8 @@ import java.util.List;
 import java.util.Map;
 
 public class NetworkManager {
-    private static final String BASE_URL = "http://10.0.2.2:8080/";
-    //private static final String BASE_URL = "https://rapplication.herokuapp.com/";
+    //private static final String BASE_URL = "http://10.0.2.2:8080/";
+    private static final String BASE_URL = "https://rapplication.herokuapp.com/";
 
     private static NetworkManager mInstance;
     private static RequestQueue mQueue;
@@ -224,23 +224,24 @@ public class NetworkManager {
         mQueue.add(request);
     }
 
-    public void changeRecipeById(long recipeId, Recipe recipe, final iNetworkCallback<Recipe> callback) {
+    public void changeRecipeById(long recipeId, Recipe recipe, final iNetworkCallback<Recipe> callback) throws JSONException {
         final JSONObject body = new JSONObject();
         Gson gson = new Gson();
         String s = gson.toJson(recipe);
+        JSONObject json = new JSONObject(s);
         Log.d(TAG, s);
-        try {
+       /* try {
             body.put("recipe", s);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        Log.d(TAG, "body: " + body.toString());
-        StringRequest request = new StringRequest(
-                Request.Method.POST, BASE_URL + "REST/editRecipe/" + recipeId,
-                new Response.Listener<String>() {
+        Log.d(TAG, "body: " + body.toString());*/
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST, BASE_URL + "REST/editRecipe/" + recipeId, json,
+                new Response.Listener<JSONObject>() {
                     @Override
-                    public void onResponse(String response) {
-                        Log.i(TAG, response);
+                    public void onResponse(JSONObject response) {
+                        Log.i(TAG, response.toString());
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -248,7 +249,7 @@ public class NetworkManager {
                 callback.onFailure(error.toString());
             }
         }
-        ) {
+        ) /*{
           @Override
             public byte[] getBody() throws AuthFailureError {
               return body.toString().getBytes();
@@ -256,7 +257,15 @@ public class NetworkManager {
             @Override
             public String getBodyContentType() {
                 return "application/json";
+            }*/
+        {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
             }
+
         };
         mQueue.add(request);
     }
