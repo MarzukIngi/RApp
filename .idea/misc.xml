@@ -3,36 +3,28 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Documents/RApp/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1105" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1105" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1105" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1105" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout-land/activity_main.xml" value="0.16979166666666667" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout-land/fragment_front_page.xml" value="0.1" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main2.xml" value="0.16576086956521738" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_change.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_front_page.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_log_in.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_change.xml" value="0.1" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_create.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_page_main.xml" value="0.36666666666666664" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_change.xml" value="0.1" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_create.xml" value="0.18489583333333334" />
         <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_recipe_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1286231884057971" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_front_page.xml" value="0.19101123595505617" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_home.xml" value="0.1286231884057971" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_page_change.xml" value="0.24010416666666667" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_page_main.xml" value="0.36666666666666664" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_recipe_change.xml" value="0.22393822393822393" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_recipe_create.xml" value="0.23541666666666666" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_recipe_main.xml" value="0.21" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/layout/fragment_user_main.xml" value="0.1" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1703125" />
-        <entry key="..\:/Documents/RApp/app/src/main/res/menu/bottom_navigation.xml" value="0.1703125" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_front_page.xml" value="0.2" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_log_in.xml" value="0.264" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_page_create.xml" value="0.153125" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_page_main.xml" value="0.153125" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_recipe_main.xml" value="0.2" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_sign_up.xml" value="0.2" />
-        <entry key="..\:/Users/Marcelo/Documents/mRapp/app/src/main/res/layout/activity_user_main.xml" value="0.153125" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_change.xml" value="0.13247213779128672" />
+        <entry key="..\:/Documents/RApp/app/src/main/res/layout/activity_user_main.xml" value="0.27239583333333334" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_front_page.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_home.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_log_in.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_notifications.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_page_create.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_page_main.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_recipe_main.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_sign_up.xml" value="0.1" />
+        <entry key="..\:/Users/Sukki/AndroidStudioProjects/RApp/app/src/main/res/layout/fragment_user_main.xml" value="0.1" />
       </map>
     </option>
   </component>
