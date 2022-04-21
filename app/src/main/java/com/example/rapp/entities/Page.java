@@ -1,27 +1,36 @@
 package com.example.rapp.entities;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 public class Page {
+    @SerializedName("id")
     private long ID;
+    @SerializedName("title")
     private String title;
+    @SerializedName("description")
     private String description;
+    @SerializedName("user")
     private User user;
+    @SerializedName("collaborators")
     private List<User> collaborators;
+    @SerializedName("recipes")
     private List<Recipe> recipes;
+    @SerializedName("followings")
     private List<Following> followings;
 
     public Page() {
     }
 
-    public Page(long ID, String title, String description, User user, List<User> collaborators, List<Recipe> recipes, List<Following> followings) {
+    public Page(long ID, String title, String description) {
         this.ID = ID;
         this.title = title;
         this.description = description;
-        this.user = user;
-        this.collaborators = collaborators;
-        this.recipes = recipes;
-        this.followings = followings;
+        //this.user = user;
+        //this.collaborators = collaborators;
+        //this.recipes = recipes;
+        //this.followings = followings;
     }
 
     public long getID() {

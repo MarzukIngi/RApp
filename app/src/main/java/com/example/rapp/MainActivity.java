@@ -93,10 +93,12 @@ public class MainActivity extends AppCompatActivity {
                             selected = new RecipeMainFragment();
                             break;
                         case R.id.nav_pages:
-                            selected = new RecipeMainFragment();
+                            //selected = new RecipeMainFragment();
+                            mNavController.navigate(R.id.pageCreateFragment);
                             break;
                         case R.id.nav_profile:
-                            selected = new UserMainFragment();
+                            //selected = new UserMainFragment();
+                            mNavController.navigate(R.id.userMainFragment);
                             break;
                     }
                     //getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
