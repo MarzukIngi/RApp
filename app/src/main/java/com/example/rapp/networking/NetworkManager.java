@@ -184,7 +184,7 @@ public class NetworkManager {
         mQueue.add(request);
     }
 
-    public void getTrendyRecipes(final iNetworkCallback<List<Recipe>> callback) {
+    public void getTrendingRecipes(final iNetworkCallback<List<Recipe>> callback) {
         StringRequest request = new StringRequest(
                 Request.Method.GET, BASE_URL + "REST/trending", new Response.Listener<String>() {
             @Override

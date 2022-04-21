@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,7 @@ public class RecipeMainFragment extends Fragment {
     private void setupRecipe() {
         TextView title = view.findViewById(R.id.recipe_title_textView);
         TextView description = view.findViewById(R.id.recipe_description_textView);
-        //TextView ingredients = view.findViewById(R.id.recipe_ingredients_textView);
+        TextView ingredients = view.findViewById(R.id.recipe_ingredients_textView);
         act.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
                 new iNetworkCallback<Recipe>() {
                     @Override
@@ -48,9 +49,9 @@ public class RecipeMainFragment extends Fragment {
                         mRecipe = result;
                         title.setText(mRecipe.getTitle());
                         description.setText(mRecipe.getDescription());
-                /*String s = "";
-                for(String ingredient : mRecipe.getIngredients()) s += ingredient + " ";
-                ingredients.setText(s);*/
+                        String s = "";
+                        for(String ingredient : mRecipe.getIngredients()) s += ingredient;
+                        ingredients.setText(s);
                     }
                     @Override
                     public void onFailure(String errorString) {
