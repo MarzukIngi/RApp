@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="2"
-    tools:context=".page.PageCreateFragment">
+    tools:context=".page.PageMainFragment">
 
     <LinearLayout
         android:id="@+id/page_main_layout"
@@ -15,7 +15,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/page_main_title"
+            android:id="@+id/page_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="35dp"
@@ -35,13 +35,30 @@
             android:background="@color/teal_700"/>
 
         <TextView
-            android:id="@+id/page_main_description"
+            android:id="@+id/page_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:inputType="text"
             android:textSize="20dp"
             tools:text="Lýsing á síðu" />
+        <TextView
+            android:id="@+id/owner_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/createRecipe_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create Recipe"/>
+
+        <LinearLayout
+            android:id="@+id/pageRecipes"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </LinearLayout>
 
     </LinearLayout>
 

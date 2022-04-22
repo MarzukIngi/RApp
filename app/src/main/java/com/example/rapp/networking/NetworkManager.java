@@ -36,8 +36,8 @@ import java.util.List;
 import java.util.Map;
 
 public class NetworkManager {
-    //private static final String BASE_URL = "http://10.0.2.2:8080/";
-    private static final String BASE_URL = "https://rapplication.herokuapp.com/";
+    private static final String BASE_URL = "http://10.0.2.2:8080/";
+    //private static final String BASE_URL = "https://rapplication.herokuapp.com/";
 
     private static NetworkManager mInstance;
     private static RequestQueue mQueue;
@@ -163,6 +163,65 @@ public class NetworkManager {
         mQueue.add(request);
     }
 
+    public void getPages(long limit, final iNetworkCallback<List<Page>> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/pages/"+limit, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<Page>>() {
+                }.getType();
+                List<Page> pageList = gson.fromJson(response, listType);
+                callback.onSuccess(pageList);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        );
+        mQueue.add(request);
+    }
+
+    public void getPage(long id, final iNetworkCallback<Page> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/page/"+id, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                Page page = gson.fromJson(response, Page.class);
+                callback.onSuccess(page);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        );
+        mQueue.add(request);
+    }
+
+    public void getOwner(long id, final iNetworkCallback<User> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/page/" + id + "/owner", new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Gson gson = new Gson();
+                User user = gson.fromJson(response, User.class);
+                callback.onSuccess(user);
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        );
+        mQueue.add(request);
+    }
+
 
     public void getRecipes(final iNetworkCallback<List<Recipe>> callback) {
         StringRequest request = new StringRequest(
@@ -221,6 +280,40 @@ public class NetworkManager {
             }
         }
         );
+        mQueue.add(request);
+    }
+
+    public void createRecipe(Recipe recipe, int pageid, final iNetworkCallback<Recipe> callback) throws JSONException {
+        Gson gson = new Gson();
+        String s = gson.toJson(recipe);
+        JSONObject json = new JSONObject(s);
+        json.put("page_id", pageid);
+
+        JsonObjectRequest request = new JsonObjectRequest(
+                Request.Method.POST, BASE_URL + "REST/createRecipe", json,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        Gson gson = new Gson();
+                        String test = response.toString();
+                        Recipe recipe = gson.fromJson(response.toString(), Recipe.class);
+                        callback.onSuccess(recipe);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                callback.onFailure(error.toString());
+            }
+        }
+        ) {
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                return headers;
+            }
+        };
+
         mQueue.add(request);
     }
 

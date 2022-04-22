@@ -43,9 +43,11 @@ public class Recipe {
         this.page = page;
     }
 
-    public Recipe(String title, String description) {
+    public Recipe(String title, String description, List<String> ingredients, Boolean published) {
         this.title = title;
         this.description = description;
+        this.ingredients = ingredients;
+        this.published = published;
     }
 
     public List<Review> getReviews() {

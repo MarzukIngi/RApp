@@ -1,66 +1,106 @@
 package com.example.rapp.recipe;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
+import com.example.rapp.MainActivity;
 import com.example.rapp.R;
+import com.example.rapp.entities.Page;
+import com.example.rapp.entities.Recipe;
+import com.example.rapp.networking.iNetworkCallback;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RecipeCreateFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import org.json.JSONException;
+
+import java.util.ArrayList;
+
 public class RecipeCreateFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private static final String TAG = "CreateRecipeFragment";
+    private View view;
+    private MainActivity mMainActivity;
 
     public RecipeCreateFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RecipeCreateFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RecipeCreateFragment newInstance(String param1, String param2) {
-        RecipeCreateFragment fragment = new RecipeCreateFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recipe_create, container, false);
+        view = inflater.inflate(R.layout.fragment_recipe_create, container, false);
+        mMainActivity = (MainActivity) requireActivity();
+        ArrayList<EditText> editTexts = new ArrayList<EditText>();
+
+        EditText getTitle = (EditText) view.findViewById(R.id.createRecipeTitle);
+        EditText getDesc = (EditText) view.findViewById(R.id.createRecipeDescription);
+        LinearLayout ingredientLayout = (LinearLayout) view.findViewById(R.id.ingredientButtons);
+
+
+        Button addIngredientButton = (Button) view.findViewById(R.id.addIngredient_button);
+        addIngredientButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Context context = mMainActivity.getApplicationContext();
+                EditText lEditText = new EditText(context);
+                lEditText.setText("Ingredient", TextView.BufferType.EDITABLE);
+                int ID = View.generateViewId();
+                lEditText.setId(ID);
+                editTexts.add(lEditText);
+                ingredientLayout.addView(lEditText);
+            }
+        });
+
+        Button createRecipeButton = (Button) view.findViewById(R.id.save_button);
+        createRecipeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String title = getTitle.getText().toString();
+                String description = getDesc.getText().toString();
+                ArrayList<String> ingredients = new ArrayList<>();
+
+                for(int i = 0; i < editTexts.size(); i++) {
+                    EditText test = editTexts.get(i);
+                    ingredients.add(test.getText().toString());
+                }
+
+                Recipe recipe = new Recipe(title, description, ingredients, true);
+                int pageid = (int) getArguments().getLong("pageID");
+                try {
+                    mMainActivity.getNetworkManager().createRecipe(recipe, pageid, new iNetworkCallback<Recipe>() {
+                        @Override
+                        public void onSuccess(Recipe result) {
+                            Bundle bundle = new Bundle();
+                            bundle.putLong("pageId", pageid);
+                            Navigation.findNavController(view).navigate(R.id.pageMainFragment, bundle);
+                        }
+
+                        @Override
+                        public void onFailure(String errorString) {
+                            Log.e(TAG, "Failed to create Recipe: " + errorString);
+                        }
+                    });
+                } catch(JSONException e) {
+                    Log.e(TAG, e.getMessage());
+                }
+            }
+        });
+
+        return view;
     }
 }

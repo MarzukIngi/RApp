@@ -1,8 +1,11 @@
 package com.example.rapp.entities;
 
+import android.os.Parcelable;
+
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
+
 
 public class Page {
     @SerializedName("id")

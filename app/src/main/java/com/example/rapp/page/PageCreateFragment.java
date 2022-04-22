@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +22,7 @@ import com.example.rapp.networking.iNetworkCallback;
 
 public class PageCreateFragment extends Fragment {
 
-    private static final String TAG = "FronPageFragment";
+    private static final String TAG = "CreatePageFragment";
     private View view;
     private MainActivity mMainActivity;
 
@@ -54,8 +55,9 @@ public class PageCreateFragment extends Fragment {
 
                 mMainActivity.getNetworkManager().createPage(pageTitle, pageDesc, username, new iNetworkCallback<Page>() {
                     @Override
-                    public void onSuccess(Page result) {
-                        Log.d(TAG,"asdfasdf");
+                    public void onSuccess(Page result)
+                    {
+                        Navigation.findNavController(view).navigate(R.id.userMainFragment);
                     }
 
                     @Override

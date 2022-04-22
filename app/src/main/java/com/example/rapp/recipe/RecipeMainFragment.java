@@ -1,14 +1,17 @@
 package com.example.rapp.recipe;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.rapp.MainActivity;
@@ -22,14 +25,14 @@ public class RecipeMainFragment extends Fragment {
     private View view;
     private static final String TAG = "RecipeMainFragment";
     private Recipe mRecipe;
-    private MainActivity mMainActivity;
+    private MainActivity act;
 
     private final View.OnClickListener changeListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
             Bundle bundle = new Bundle();
             bundle.putLong("recipeId", mRecipe.getID());
-            mMainActivity.getNavController().navigate(R.id.action_recipeMainFragment_to_recipeChangeFragment, bundle);
+            act.getNavController().navigate(R.id.action_recipeMainFragment_to_recipeChangeFragment, bundle);
         }
     };
 
@@ -40,8 +43,9 @@ public class RecipeMainFragment extends Fragment {
     private void setupRecipe() {
         TextView title = view.findViewById(R.id.recipe_title_textView);
         TextView description = view.findViewById(R.id.recipe_description_textView);
-        TextView ingredients = view.findViewById(R.id.recipe_ingredients_textView);
-        mMainActivity.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
+        LinearLayout ingredients = view.findViewById(R.id.recipeIngredients);
+        Context context = act.getApplicationContext();
+        act.getNetworkManager().getRecipeById(getArguments().getLong("recipeId"),
                 new iNetworkCallback<Recipe>() {
                     @Override
                     public void onSuccess(Recipe result) {
@@ -49,8 +53,12 @@ public class RecipeMainFragment extends Fragment {
                         title.setText(mRecipe.getTitle());
                         description.setText(mRecipe.getDescription());
                         String s = "";
-                        for(String ingredient : mRecipe.getIngredients()) s += ingredient;
-                        ingredients.setText(s);
+                        for(String ingredient : mRecipe.getIngredients()) {
+                            TextView ingredientView = new TextView(context);
+                            ingredientView.setId(View.generateViewId());
+                            ingredientView.setText(ingredient);
+                            ingredients.addView(ingredientView);
+                        }
                     }
                     @Override
                     public void onFailure(String errorString) {
@@ -69,10 +77,26 @@ public class RecipeMainFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_recipe_main, container, false);
-        mMainActivity = (MainActivity) requireActivity();
+        act = (MainActivity) requireActivity();
         setupRecipe();
         Button change = (Button) view.findViewById(R.id.recipe_change_button);
+        Button back = (Button) view.findViewById(R.id.recipe_back_button);
         change.setOnClickListener(changeListener);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String test = getArguments().getString("back");
+                Long pog = getArguments().getLong("recipeId");
+                if(getArguments().getString("back").equals("page")) {
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("pageId", getArguments().getLong("pageId"));
+                    act.getNavController().navigate(R.id.pageMainFragment, bundle);
+                } else {
+                    act.getNavController().navigate(R.id.frontPageFragment);
+                }
+            }
+        });
+
         return view;
     }
 }
