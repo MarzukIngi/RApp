@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity {
                             //selected = new FrontPageFragment();
                             mNavController.navigate(R.id.frontPageFragment);
                             break;
-                        case R.id.nav_recipes:
-                            selected = new RecipeMainFragment();
-                            break;
                         case R.id.nav_pages:
                             //selected = new RecipeMainFragment();
                             mNavController.navigate(R.id.pageCreateFragment);
@@ -96,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
                             mNavController.navigate(R.id.userMainFragment);
                             break;
                     }
-                    //getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment,
-                           // selected).commit();
                     return true; // return true;
                 }
             };

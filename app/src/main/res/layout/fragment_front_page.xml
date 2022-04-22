@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="34dp"
+            android:padding="14dp"
             android:background="@color/teal_700"
             android:text="@string/uppskriftavefurinn_rapp"
             android:textSize="12pt"
@@ -31,7 +31,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@color/teal_700"
-                android:text="@string/uppskriftir"
+                android:text="@string/vinsaelar_uppskriftir"
                 android:textSize="8pt"/>
             <Button
                 android:id="@+id/random_recipe_button"
@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@color/teal_700"
-                android:text="@string/sidur"
+                android:text="@string/vinsaelar_sidur"
                 android:textSize="8pt"/>
             <Button
                 android:id="@+id/random_page_button"

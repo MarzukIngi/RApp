@@ -27,4 +27,7 @@
     <string name="bua_til_notanda">Búa til notanda</string>
     <string name="utskraning">Útskráning</string>
     <string name="innskraning">Innskráning</string>
+    <string name="bua_til_sidu">Búa til síðu</string>
+    <string name="vinsaelar_uppskriftir">Vinsælar uppskriftir</string>
+    <string name="vinsaelar_sidur">Vinsælar síður</string>
 </resources>

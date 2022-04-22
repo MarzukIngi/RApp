@@ -65,7 +65,7 @@ public class UserMainFragment extends Fragment {
 
             @Override
             public void onFailure(String errorString) {
-
+                Log.e(TAG, errorString);
             }
         });
     }

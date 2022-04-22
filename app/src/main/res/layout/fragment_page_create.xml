@@ -21,7 +21,7 @@
             android:gravity="center"
             android:textStyle="bold"
             android:background="@color/teal_700"
-            android:text="@string/bua_til_uppskrift"/>
+            android:text="@string/bua_til_sidu"/>
 
         <EditText
             android:id="@+id/pageTitle_input"

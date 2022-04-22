@@ -6,14 +6,9 @@
         android:title="Heim"/>
 
     <item
-        android:id="@+id/nav_recipes"
-        android:icon="@drawable/ic_baseline_restaurant_menu_24"
-        android:title="Mínar uppskriftir"/>
-
-    <item
         android:id="@+id/nav_pages"
         android:icon="@drawable/ic_baseline_menu_book_24"
-        android:title="Mínar síður"/>
+        android:title="@string/bua_til_sidu"/>
 
     <item
         android:id="@+id/nav_profile"
