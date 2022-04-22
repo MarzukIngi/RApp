@@ -62,7 +62,7 @@
             android:id="@+id/createRecipe_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/bua_til_sidu"
+            android:text="@string/bua_til_uppskrift"
             android:layout_marginRight="10dp"
             android:layout_marginLeft="10dp"/>
 
