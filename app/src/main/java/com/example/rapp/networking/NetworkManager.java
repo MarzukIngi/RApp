@@ -36,8 +36,8 @@ import java.util.List;
 import java.util.Map;
 
 public class NetworkManager {
-    private static final String BASE_URL = "http://10.0.2.2:8080/";
-    //private static final String BASE_URL = "https://rapplication.herokuapp.com/";
+    //private static final String BASE_URL = "http://10.0.2.2:8080/";
+    private static final String BASE_URL = "https://rapplication.herokuapp.com/";
 
     private static NetworkManager mInstance;
     private static RequestQueue mQueue;
@@ -169,8 +169,7 @@ public class NetworkManager {
             @Override
             public void onResponse(String response) {
                 Gson gson = new Gson();
-                Type listType = new TypeToken<List<Page>>() {
-                }.getType();
+                Type listType = new TypeToken<List<Page>>() {}.getType();
                 List<Page> pageList = gson.fromJson(response, listType);
                 callback.onSuccess(pageList);
             }
