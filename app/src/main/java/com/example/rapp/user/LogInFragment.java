@@ -74,7 +74,6 @@ public class LogInFragment extends Fragment {
                 String username = getUsername.getText().toString();
                 String password = getPassword.getText().toString();
 
-
                 mMainActivity.getNetworkManager().login(username, password, new iNetworkCallback<String>() {
                     @Override
                     public void onSuccess(String result) {

@@ -40,15 +40,15 @@
             android:inputType="textMultiLine"
             android:text="@string/lysing" />
 
-<!--        <EditText-->
-<!--            android:id="@+id/createRecipeIngredients"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="110dp"-->
-<!--            android:ems="10"-->
-<!--            android:gravity="start|top"-->
-<!--            android:inputType="textMultiLine"-->
-<!--            android:text="@string/innihald"-->
-<!--            android:layout_marginTop="20dp"/>-->
+        <!--        <EditText-->
+        <!--            android:id="@+id/createRecipeIngredients"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="110dp"-->
+        <!--            android:ems="10"-->
+        <!--            android:gravity="start|top"-->
+        <!--            android:inputType="textMultiLine"-->
+        <!--            android:text="@string/innihald"-->
+        <!--            android:layout_marginTop="20dp"/>-->
         <LinearLayout
             android:id="@+id/ingredientButtons"
             android:orientation="vertical"

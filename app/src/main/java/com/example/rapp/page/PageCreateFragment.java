@@ -40,7 +40,12 @@ public class PageCreateFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_page_create, container, false);
         mMainActivity = (MainActivity) requireActivity();
-
+        SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
+        String username = sharedPref.getString("LoggedIn", "unavailable");
+        if(username == "unavailable") {
+            mMainActivity.getNavController().navigate(R.id.logInFragment);
+            return view;
+        }
         EditText getTitle = (EditText) view.findViewById(R.id.pageTitle_input);
         EditText getDesc = (EditText) view.findViewById(R.id.pageDescription_input);
 
