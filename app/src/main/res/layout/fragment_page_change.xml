@@ -37,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:hint="@string/lysing"
-            android:inputType="textPassword" />
+            android:inputType="text" />
 
         <Button
             android:id="@+id/savePage_button"
