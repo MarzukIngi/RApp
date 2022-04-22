@@ -256,28 +256,42 @@ public class NetworkManager {
 
     public void getPagesByUsername(String username, final iNetworkCallback<List<Page>> callback) {
         StringRequest request = new StringRequest(
-                Request.Method.GET, BASE_URL + "REST/userPages",
+                Request.Method.GET, BASE_URL + "REST/userPages/" + username,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        Log.d(TAG, response);
+                        Gson gson = new Gson();
+                        Type listType = new TypeToken<List<Page>>(){}.getType();
+                        List<Page> pagelist = gson.fromJson(response, listType);
+                        callback.onSuccess(pagelist);
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Log.e(TAG, "Error is: " + error);
+                Log.e(TAG, "Error is: " + error.toString());
             }
         }
-        ) {
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                HashMap<String, String> headers = new HashMap<String, String>();
-                headers.put("Content-Type", "application/json");
-                headers.put("username", username);
-                return headers;
-            }
+        );
+        mQueue.add(request);
+    }
 
-        };
+    public void getPageById(long id, final iNetworkCallback<Page> callback) {
+        StringRequest request = new StringRequest(
+                Request.Method.GET, BASE_URL + "REST/page/" + id,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Gson gson = new Gson();
+                        Page page = gson.fromJson(response, Page.class);
+                        callback.onSuccess(page);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAG, "Error is: " + error.toString());
+            }
+        }
+        );
         mQueue.add(request);
     }
 }

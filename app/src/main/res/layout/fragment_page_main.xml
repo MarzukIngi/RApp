@@ -25,11 +25,22 @@
             tools:text="Titill síðu"/>
 
         <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/lysing"
+            android:textStyle="bold"
+            android:paddingLeft="2pt"
+            android:textSize="12pt"
+            android:background="@color/teal_700"/>
+
+        <TextView
             android:id="@+id/page_main_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:inputType="text"
+            android:textSize="20dp"
             tools:text="Lýsing á síðu" />
 
     </LinearLayout>

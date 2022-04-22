@@ -13,11 +13,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.rapp.MainActivity;
 import com.example.rapp.R;
 import com.example.rapp.entities.Page;
 import com.example.rapp.networking.iNetworkCallback;
+
+import org.json.JSONException;
 
 import java.util.List;
 
@@ -32,14 +35,16 @@ public class UserMainFragment extends Fragment {
         // Required empty public constructor
     }
 
-    private void setupButtons() {
+    private void setupButtons() throws JSONException {
         LinearLayout layout = mView.findViewById(R.id.user_main_layout);
+        TextView tw = mView.findViewById(R.id.username_textview);
         SharedPreferences sharedPref = getActivity().getPreferences(Context.MODE_PRIVATE);
         String username = sharedPref.getString("LoggedIn", "unavailable");
         if(username == "unavailable") {
             mMainActivity.getNavController().navigate(R.id.logInFragment);
             return;
         }
+        tw.setText(username);
         mMainActivity.getNetworkManager().getPagesByUsername(username, new iNetworkCallback<List<Page>>() {
             @Override
             public void onSuccess(List<Page> result) {
@@ -89,11 +94,14 @@ public class UserMainFragment extends Fragment {
                 SharedPreferences.Editor editor = sharedPref.edit();
                 editor.putString("LoggedIn", null);
                 editor.apply();
-
                 Navigation.findNavController(view).navigate(R.id.logInFragment);
             }
         });
-        setupButtons();
+        try {
+            setupButtons();
+        } catch (JSONException e) {
+            Log.e(TAG, e.getMessage());
+        }
         return mView;
     }
 }
