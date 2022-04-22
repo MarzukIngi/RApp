@@ -64,7 +64,7 @@ public class SignUpFragment extends Fragment {
                         }
                         else {
                             String s = "Ekki tókst að búa til notanda";
-                            Toast toast = Toast.makeText(getContext(), "s", Toast.LENGTH_SHORT);
+                            Toast toast = Toast.makeText(getContext(), s, Toast.LENGTH_SHORT);
                             toast.show();
                         }
                     }
