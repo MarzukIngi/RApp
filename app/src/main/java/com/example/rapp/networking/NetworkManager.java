@@ -98,7 +98,7 @@ public class NetworkManager {
         mQueue.add(request);
     }
 
-    public void signup(String email, String username, String password, final iNetworkCallback<String> callback) {
+    public void signup(String email, String username, String password, final iNetworkCallback<User> callback) {
         Map<String, String> postParam = new HashMap<String, String>();
         postParam.put("email", email);
         postParam.put("userName", username);
@@ -109,11 +109,14 @@ public class NetworkManager {
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        callback.onSuccess("approved");
+                        Gson gson = new Gson();
+                        User user = gson.fromJson(response.toString(), User.class);
+                        callback.onSuccess(user);
                     }
                 }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        Log.e(TAG, error.getMessage());
                         callback.onFailure(error.toString());
                     }
                 }

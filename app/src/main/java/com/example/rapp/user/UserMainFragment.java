@@ -49,7 +49,6 @@ public class UserMainFragment extends Fragment {
             @Override
             public void onSuccess(List<Page> result) {
                 mPages = result;
-                Log.d(TAG, "First title: " + mPages.get(0).getTitle());
                 for(Page p: mPages) {
                     Button b = new Button(getContext());
                     b.setText(p.getTitle());

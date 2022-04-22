@@ -11,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.rapp.MainActivity;
 import com.example.rapp.R;
+import com.example.rapp.entities.User;
 import com.example.rapp.networking.iNetworkCallback;
 
 
@@ -54,11 +56,17 @@ public class SignUpFragment extends Fragment {
                 String username = getUsername.getText().toString();
                 String password = getPassword.getText().toString();
 
-                mMainActivity.getNetworkManager().signup(email, username, password, new iNetworkCallback<String>() {
+                mMainActivity.getNetworkManager().signup(email, username, password, new iNetworkCallback<User>() {
                     @Override
-                    public void onSuccess(String result) {
-                        Log.d(TAG, "Successfully signed up");
-                        Navigation.findNavController(view).navigate(R.id.logInFragment);
+                    public void onSuccess(User result) {
+                        if(result.getUserName() != null) {
+                            Navigation.findNavController(view).navigate(R.id.logInFragment);
+                        }
+                        else {
+                            String s = "Ekki tókst að búa til notanda";
+                            Toast toast = Toast.makeText(getContext(), "s", Toast.LENGTH_SHORT);
+                            toast.show();
+                        }
                     }
 
                     @Override

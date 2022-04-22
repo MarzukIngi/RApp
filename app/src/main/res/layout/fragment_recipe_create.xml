@@ -19,6 +19,7 @@
             android:background="@color/teal_700"
             android:gravity="center"
             android:textSize="18pt"
+            android:textStyle="bold"
             android:text="@string/gera_uppskrift"/>
 
         <EditText

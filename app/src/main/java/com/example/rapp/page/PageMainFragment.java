@@ -94,6 +94,7 @@ public class PageMainFragment extends Fragment {
             @Override
             public void onSuccess(User result) {
                 mPage.setUser(result);
+                Log.d(TAG, result.getUserName());
                 owner.setText(result.getUserName());
             }
 
