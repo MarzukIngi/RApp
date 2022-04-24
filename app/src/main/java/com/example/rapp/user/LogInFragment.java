@@ -19,31 +19,18 @@ import com.example.rapp.MainActivity;
 import com.example.rapp.R;
 import com.example.rapp.networking.iNetworkCallback;
 
-import org.json.JSONObject;
-
+/**
+ * Sér um fragment-ið sem sér um innskráningu.
+ */
 public class LogInFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String TAG = "LogInFragment";
     private View view;
     private MainActivity mMainActivity;
 
-    // TODO: Rename and change types of parameters
-
     public LogInFragment() {
         // Required empty public constructor
     }
-
-    // TODO: Rename and change types and number of parameters
-//    public static LogInFragment newInstance(String param1, String param2) {
-//        LogInFragment fragment = new LogInFragment();
-//        Bundle args = new Bundle();
-//        args.putString(ARG_PARAM1, param1);
-//        args.putString(ARG_PARAM2, param2);
-//        fragment.setArguments(args);
-//        return fragment;
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

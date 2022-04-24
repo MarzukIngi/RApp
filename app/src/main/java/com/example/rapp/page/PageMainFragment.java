@@ -21,8 +21,10 @@ import com.example.rapp.entities.User;
 import com.example.rapp.networking.iNetworkCallback;
 
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * Sér um fragment-ið sem sýnir síðu.
+ */
 public class PageMainFragment extends Fragment {
 
     private View view;

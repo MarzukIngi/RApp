@@ -21,13 +21,15 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sér um fragment-ið sem breytir uppskrift.
+ */
 public class RecipeChangeFragment extends Fragment {
 
     private View view;
     private static final String TAG = "RecipeChangeFragment";
     private Recipe mRecipe = new Recipe();
     private MainActivity mMainActivity;
-    private TextView title, description, ingredients;
 
     private View.OnClickListener saveListener = new View.OnClickListener() {
         @Override

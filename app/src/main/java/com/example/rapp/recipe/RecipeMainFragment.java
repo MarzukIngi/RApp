@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,7 +18,9 @@ import com.example.rapp.R;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.iNetworkCallback;
 
-
+/**
+ * Sér um fragment-ið sem birtir uppskrift.
+ */
 public class RecipeMainFragment extends Fragment {
 
     private View view;
@@ -40,6 +41,9 @@ public class RecipeMainFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Sækir uppskriftina og setur hana upp í fragment-inu.
+     */
     private void setupRecipe() {
         TextView title = view.findViewById(R.id.recipe_title_textView);
         TextView description = view.findViewById(R.id.recipe_description_textView);

@@ -17,7 +17,6 @@ import android.widget.TextView;
 
 import com.example.rapp.MainActivity;
 import com.example.rapp.R;
-import com.example.rapp.entities.Page;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.iNetworkCallback;
 
@@ -25,6 +24,9 @@ import org.json.JSONException;
 
 import java.util.ArrayList;
 
+/**
+ * Sér um fragment-ið sem býr til síðu.
+ */
 public class RecipeCreateFragment extends Fragment {
 
     private static final String TAG = "CreateRecipeFragment";

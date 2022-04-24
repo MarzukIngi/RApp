@@ -14,13 +14,14 @@ import android.view.MenuItem;
 import com.example.rapp.entities.Recipe;
 import com.example.rapp.networking.NetworkManager;
 import com.example.rapp.networking.iNetworkCallback;
-import com.example.rapp.recipe.RecipeMainFragment;
-import com.example.rapp.user.UserMainFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import java.util.List;
 
+/**
+ * Sér um main activity, sem heldur utan um fragment-in og bottom navigation.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
@@ -34,21 +35,6 @@ public class MainActivity extends AppCompatActivity {
 
     public NetworkManager getNetworkManager() {
         return mNetworkManager;
-    }
-
-    public List<Recipe> getTrendingRecipes() {
-        mNetworkManager.getTrendingRecipes(new iNetworkCallback<List<Recipe>>() {
-            @Override
-            public void onSuccess(List<Recipe> result) {
-                Log.d(TAG, "hæ");
-                mRecipeResults = result;
-            }
-            @Override
-            public void onFailure(String errorString) {
-                Log.e(TAG, "Failed to get Recipes: " + errorString);
-            }
-        });
-        return mRecipeResults;
     }
 
     @Override

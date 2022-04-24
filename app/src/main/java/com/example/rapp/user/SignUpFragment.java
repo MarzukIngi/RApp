@@ -18,11 +18,11 @@ import com.example.rapp.R;
 import com.example.rapp.entities.User;
 import com.example.rapp.networking.iNetworkCallback;
 
-
+/**
+ * Sér um fragment-ið sem sér um að búa til notanda.
+ */
 public class SignUpFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String TAG = "SignUpFragment";
     private View view;
     private MainActivity mMainActivity;

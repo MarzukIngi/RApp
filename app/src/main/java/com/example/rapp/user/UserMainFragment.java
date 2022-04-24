@@ -24,6 +24,9 @@ import org.json.JSONException;
 
 import java.util.List;
 
+/**
+ * Sér um fragment-ið sem sér um að birta notanda.
+ */
 public class UserMainFragment extends Fragment {
 
     private static final String TAG = "UserMainFragment";
@@ -35,6 +38,10 @@ public class UserMainFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Sækir síður fyrir notandann og setur upp takka sem vísa til þeirra.
+     * @throws JSONException
+     */
     private void setupButtons() throws JSONException {
         LinearLayout layout = mView.findViewById(R.id.user_main_layout);
         TextView tw = mView.findViewById(R.id.username_textview);

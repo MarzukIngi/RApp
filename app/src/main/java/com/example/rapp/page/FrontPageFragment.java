@@ -20,7 +20,9 @@ import com.example.rapp.networking.iNetworkCallback;
 import java.util.List;
 import java.util.Random;
 
-
+/**
+ * Sér um forsíðu fragment-ið.
+ */
 public class FrontPageFragment extends Fragment {
 
     private LinearLayout mLinearLayout;
@@ -47,6 +49,9 @@ public class FrontPageFragment extends Fragment {
         // Required empty public constructor
     }
 
+    /**
+     * Setur upp takkana á forsíðunni sem vísa í vinsælustu uppskriftirnar.
+     */
     public void setupRecipeButtons() {
         mMainActivity.getNetworkManager().getTrendingRecipes(new iNetworkCallback<List<Recipe>>() {
             @Override

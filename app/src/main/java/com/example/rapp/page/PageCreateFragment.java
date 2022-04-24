@@ -19,7 +19,9 @@ import com.example.rapp.R;
 import com.example.rapp.entities.Page;
 import com.example.rapp.networking.iNetworkCallback;
 
-
+/**
+ * Sér um fragment-ið sem býr til síðu.
+ */
 public class PageCreateFragment extends Fragment {
 
     private static final String TAG = "CreatePageFragment";
